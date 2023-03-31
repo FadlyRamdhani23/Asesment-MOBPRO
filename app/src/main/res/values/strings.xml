@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Hitung Kebutuhan Kalori Dan Protein Kita</string>
+    <string name="bmi_intro">Ayo hitung kebutuhan kalori dalam sehari kalian dan juga hitung berat badan ideal kalian yaa!!</string>
+    <string name="jenis_kelamin">Jenis kelamin</string>
+    <string name="pria">Pria</string>
+    <string name="wanita">Wanita</string>
+    <string name="hitung">Hitung</string>
+    <string name="bmi_x">BMI: %1$.2f</string>
+    <string name="bmr_x">BMR: %1$.2f kalori</string>
+    <string name="protein_x">PROTEIN: %1$.0f </string>
+    <string name="kurus">Kurus</string>
+    <string name="ideal">Ideal</string>
+    <string name="gemuk">Gemuk</string>
+    <string name="kategori_x">Kategori: %1$s</string>
+    <string name="berat_invalid">Berat tidak boleh kosong.</string>
+    <string name="tinggi_invalid">Tinggi tidak boleh kosong.</string>
+    <string name="Umur_invalid">Umur tidak boleh kosong.</string>
+    <string name="gender_invalid">Pilih jenis kelamin.</string>
+    <string name="berat_badan">Berat badan (kg)</string>
+    <string name="Umur">Umur(th)</string>
+    <string name="tinggi_badan">Tinggi badan (cm)</string>
+</resources>
