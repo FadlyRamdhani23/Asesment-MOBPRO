@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import com.example.myapplication.databinding.ActivityMain3Binding
-import com.example.myapplication.databinding.ActivityMainBinding
+
 
 class MainActivity3 : AppCompatActivity() {
     private lateinit var binding: ActivityMain3Binding
@@ -16,13 +16,14 @@ class MainActivity3 : AppCompatActivity() {
         binding = ActivityMain3Binding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.button.setOnClickListener { hitungBmi() }
-//        binding.RESET.setOnClickListener(){resetFunction()}
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        binding.RESET.setOnClickListener{resetFunction()}
     }
-    //    private fun resetFunction(){
-//        binding.beratBadanInp.text.clear()
-//        binding.tinggiBadanInp.text.clear()
-//        binding.radioGroup.clearCheck()
-//    }
+        private fun resetFunction(){
+        binding.beratBadanInp.text?.clear()
+        binding.tinggiBadanInp.text?.clear()
+        binding.radioGroup.clearCheck()
+    }
     private fun hitungBmi() {
 
         val berat = binding.beratBadanInp.text.toString()
