@@ -1,10 +1,12 @@
-package com.example.myapplication
+package org.d3if3127.assesement02
 
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.myapplication.databinding.ActivityMainBinding
+import org.d3if3127.assesment02.R
+import org.d3if3127.assesment02.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

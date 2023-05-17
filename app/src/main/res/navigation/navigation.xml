@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/hitungFragment">
+
+    <fragment
+        android:id="@+id/hitungFragment"
+        android:name="org.d3if3127.assesement02.ui.HitungFragment"
+        android:label="fragment_hitung"
+        tools:layout="@layout/fragment_hitung" >
+        <action
+            android:id="@+id/action_hitungFragment_to_saranFragment"
+            app:destination="@id/saranFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/saranFragment"
+        android:name="org.d3if3127.assesement02.ui.SaranFragment"
+        android:label="SaranFragment" >
+        <argument
+            android:name="kategori"
+            app:argType="org.d3if3127.assesement02.model.KategoriBmi" />
+    </fragment>
+</navigation>

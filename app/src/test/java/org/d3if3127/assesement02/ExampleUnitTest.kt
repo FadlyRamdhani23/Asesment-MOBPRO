@@ -1,4 +1,4 @@
-package com.example.myapplication
+package org.d3if3127.assesement02
 
 import org.junit.Test
 

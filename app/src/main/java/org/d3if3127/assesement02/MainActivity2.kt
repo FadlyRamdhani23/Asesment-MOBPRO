@@ -1,17 +1,23 @@
-package com.example.myapplication
+package org.d3if3127.assesement02
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
-import com.example.myapplication.databinding.ActivityMain2Binding
+import androidx.lifecycle.ViewModelProvider
+import org.d3if3127.assesement02.model.HasilBmr
+import org.d3if3127.assesement02.ui.MainViewModel
+import org.d3if3127.assesment02.R
+import org.d3if3127.assesment02.databinding.ActivityMain2Binding
 
 
 
 class MainActivity2 : AppCompatActivity() {
     private lateinit var binding: ActivityMain2Binding
-
+    private val viewModel: MainViewModel by lazy {
+        ViewModelProvider(this)[MainViewModel::class.java]
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
@@ -20,6 +26,7 @@ class MainActivity2 : AppCompatActivity() {
         binding.button.setOnClickListener { hitungKaloriProtein() }
         binding.RESET.setOnClickListener{resetFunction()}
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        viewModel.getHasilBmr().observe(this, { showResult(it) })
     }
 
     private fun resetFunction(){
@@ -48,54 +55,28 @@ class MainActivity2 : AppCompatActivity() {
             return
         }
 
-
-//        val tinggiCm = tinggi.toFloat() / 100
         val selectedId = binding.radioGroup.checkedRadioButtonId
         if (selectedId == -1) {
             Toast.makeText(this, R.string.gender_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val isMale = selectedId == R.id.priaRadioButton
-//        val bmi = berat.toFloat() / (tinggiCm * tinggiCm)
-        val bmr = (10 * berat.toFloat()) + (6.25 * tinggi.toFloat()) - (5 * umur.toFloat())
-        val protein = if(isMale){
-            (berat.toFloat() * 2)
-        }else{
-            (berat.toFloat() * 1.5)
-        }
 
-        val perbedaan = if(isMale){
-            bmr + 5
+        viewModel.hitungKaloriProtein(
+            berat.toFloat(),
+            tinggi.toFloat(),
+            umur.toFloat(),
+            selectedId == R.id.priaRadioButton
+        )
 
-        }else{
-            bmr -161
-        }
-//        val kategori = getKategori(bmi, isMale)
-//        binding.bmiTextView.text = getString(R.string.bmi_x, bmi)
-        binding.bmrTextView.text = getString(R.string.bmr_x, perbedaan)
-        binding.proteinTextView.text = getString(R.string.protein_x, protein)
-//        binding.kategoriTextView.text = getString(R.string.kategori_x, kategori)
+
     }
 
 
+    private fun showResult(result: HasilBmr?) {
+        if (result == null) return
+        binding.bmrTextView.text = getString(R.string.bmr_x, result.perbedaan)
+        binding.proteinTextView.text = getString(R.string.protein_x, result.hasilProtein)
 
-    //    fun calculateProtein(weight: Int): Int {
-//        return (weight * 1.5).toInt()
-//    }
-//    private fun getKategori(bmi: Float, isMale: Boolean): String {
-//        val stringRes = if (isMale) {
-//            when {
-//                bmi < 20.5 -> R.string.kurus
-//                bmi >= 27.0 -> R.string.gemuk
-//                else -> R.string.ideal
-//            }
-//        } else {
-//            when {
-//                bmi < 18.5 -> R.string.kurus
-//                bmi >= 25.0 -> R.string.gemuk
-//                else -> R.string.ideal
-//            }
-//        }
-//        return getString(stringRes)
-//    }
+    }
+
 }
