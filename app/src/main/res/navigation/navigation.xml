@@ -3,8 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/hitungFragment">
-
+    app:startDestination="@id/homePageFragment2">
+    <fragment
+        android:id="@+id/homePageFragment2"
+        android:name="org.d3if3127.assesement02.ui.HomePageFragment"
+        android:label="fragment_homepage"
+        tools:layout="@layout/fragment_homepage" >
+        <action
+            android:id="@+id/action_homePageFragment2_to_hitungFragment"
+            app:destination="@id/hitungFragment" />
+        <action
+            android:id="@+id/action_homePageFragment2_to_hitungBmrFragment"
+            app:destination="@id/hitungBmrFragment" />
+    </fragment>
     <fragment
         android:id="@+id/hitungFragment"
         android:name="org.d3if3127.assesement02.ui.HitungFragment"
@@ -22,4 +33,8 @@
             android:name="kategori"
             app:argType="org.d3if3127.assesement02.model.KategoriBmi" />
     </fragment>
+    <fragment
+        android:id="@+id/hitungBmrFragment"
+        android:name="org.d3if3127.assesement02.ui.HitungBmrFragment"
+        android:label="HitungBmrFragment" />
 </navigation>
