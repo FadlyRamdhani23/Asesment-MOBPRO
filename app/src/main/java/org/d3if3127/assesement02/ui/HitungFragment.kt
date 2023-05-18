@@ -1,5 +1,6 @@
 package org.d3if3127.assesement02.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -8,8 +9,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import org.d3if3127.assesement02.model.HasilBmi
 import org.d3if3127.assesement02.model.KategoriBmi
@@ -31,8 +30,10 @@ class HitungFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.button.setOnClickListener { hitungBmi() }
+        binding.RESET.setOnClickListener{resetFunction()}
         viewModel.getHasilBmi().observe(requireActivity(), { showResult(it) })
         binding.saranButton.setOnClickListener { viewModel.mulaiNavigasi() }
+        binding.shareButton.setOnClickListener { shareData() }
         viewModel.getNavigasi().observe(viewLifecycleOwner, {
             if (it == null) return@observe
             findNavController().navigate(HitungFragmentDirections
@@ -41,10 +42,35 @@ class HitungFragment : Fragment() {
         })
     }
 
+    private fun shareData() {
+        val selectedId = binding.radioGroup.checkedRadioButtonId
+        val gender = if (selectedId == R.id.priaRadioButton)
+            getString(R.string.pria)
+        else
+            getString(R.string.wanita)
+        val message = getString(R.string.bagikan_template,
+            binding.beratBadanInp.text,
+            binding.tinggiBadanInp.text,
+            gender,
+            binding.bmiTextView.text,
+            binding.kategoriTextView.text
+        )
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, message)
+        if (shareIntent.resolveActivity(
+                requireActivity().packageManager) != null) {
+            startActivity(shareIntent)
+        }
+    }
+
         private fun resetFunction(){
-        binding.beratBadanInp.text?.clear()
-        binding.tinggiBadanInp.text?.clear()
-        binding.radioGroup.clearCheck()
+            binding.beratBadanInp.text?.clear()
+            binding.tinggiBadanInp.text?.clear()
+            binding.radioGroup.clearCheck()
+            binding.bmiTextView.visibility = View.GONE
+            binding.kategoriTextView.visibility = View.GONE
+            binding.saranButton.visibility = View.GONE
+            binding.shareButton.visibility = View.GONE
     }
     private fun hitungBmi() {
 
@@ -107,6 +133,8 @@ class HitungFragment : Fragment() {
         binding.bmiTextView.text = getString(R.string.bmi_x, result.bmi)
         binding.kategoriTextView.text = getString(R.string.kategori_x,
             getKategoriLabel(result.kategori))
-        binding.saranButton.visibility = View.VISIBLE
+        binding.bmiTextView.visibility = View.VISIBLE
+        binding.kategoriTextView.visibility = View.VISIBLE
+        binding.buttonGroup.visibility = View.VISIBLE
     }
 }

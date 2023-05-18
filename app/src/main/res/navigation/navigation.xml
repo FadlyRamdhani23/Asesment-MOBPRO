@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_homePageFragment2_to_hitungBmrFragment"
             app:destination="@id/hitungBmrFragment" />
+        <action
+            android:id="@+id/action_homePageFragment2_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
     </fragment>
     <fragment
         android:id="@+id/hitungFragment"
@@ -36,5 +39,17 @@
     <fragment
         android:id="@+id/hitungBmrFragment"
         android:name="org.d3if3127.assesement02.ui.HitungBmrFragment"
-        android:label="HitungBmrFragment" />
+        android:label="HitungBmrFragment" >
+        <action
+            android:id="@+id/action_hitungBmrFragment_to_saranBmrFragment"
+            app:destination="@id/saranBmrFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="org.d3if3127.assesement02.ui.AboutFragment"
+        android:label="AboutFragment" />
+    <fragment
+        android:id="@+id/saranBmrFragment"
+        android:name="org.d3if3127.assesement02.ui.SaranBmrFragment"
+        android:label="SaranBmrFragment" />
 </navigation>

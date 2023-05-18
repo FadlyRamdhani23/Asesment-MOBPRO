@@ -3,10 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#617A55"
     tools:context="org.d3if3127.assesement02.ui.HitungFragment">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="0dp"
@@ -14,27 +16,33 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:fontFamily="@font/akaya_telivigala"
+            android:fontFamily="@font/alfa_slab_one"
             android:text="@string/bmi_intro"
+            android:textColor="#FFF8D6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/saranButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="2dp"
             android:layout_marginBottom="16dp"
+            android:fontFamily="@font/alfa_slab_one"
             android:text="@string/lihat_saran"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/shareButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/kategoriTextView"
             tools:visibility="visible" />
+
         <com.google.android.material.textfield.TextInputLayout
+            android:textColor="#FFF8D6"
+            android:fontFamily="@font/alfa_slab_one"
             android:id="@+id/beratBadan_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,13 +50,19 @@
             android:layout_marginEnd="16dp"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/textView">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/beratBadan_inp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/berat_badan" />
+                android:fontFamily="@font/alfa_slab_one"
+                android:hint="@string/berat_badan"
+                android:textColor="#FFF8D6"
+                android:textColorHint="#FFF8D6" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
+            android:textColor="#FFF8D6"
+            android:fontFamily="@font/alfa_slab_one"
             android:id="@+id/tinggiBadan_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,6 +71,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/beratBadan_hint">
             <com.google.android.material.textfield.TextInputEditText
+                android:textColor="#FFF8D6"
+                android:fontFamily="@font/alfa_slab_one"
                 android:id="@+id/tinggiBadan_inp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,6 +80,8 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:fontFamily="@font/alfa_slab_one"
+            android:textColor="#FFF8D6"
             android:id="@+id/textViewJK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -86,6 +104,8 @@
                 "@id/tinggiBadan_hint">
 
             <RadioButton
+                android:fontFamily="@font/alfa_slab_one"
+                android:textColor="#FFF8D6"
                 android:id="@+id/priaRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -93,6 +113,8 @@
                 android:text="@string/pria" />
 
             <RadioButton
+                android:fontFamily="@font/alfa_slab_one"
+                android:textColor="#FFF8D6"
                 android:id="@+id/wanitaRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,11 +123,11 @@
         </RadioGroup>
 
         <Button
+            android:fontFamily="@font/alfa_slab_one"
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:fontFamily="@font/actor"
             android:text="@string/hitung"
             app:layout_constraintStart_toStartOf="@+id/radioGroup"
             app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
@@ -121,30 +143,58 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button" />
+
         <TextView
             android:id="@+id/bmiTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/alfa_slab_one"
+            android:textColor="#FFF8D6"
             android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/kategoriTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider"
             tools:text="BMI: 24,09" />
+
         <TextView
             android:id="@+id/kategoriTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/alfa_slab_one"
+            android:textColor="#FFF8D6"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/saranButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bmiTextView"
             tools:text="Kategori: Ideal" />
 
         <Button
+            android:id="@+id/shareButton"
+            android:layout_width="152dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/bagikan"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/saranButton"
+            app:layout_constraintTop_toTopOf="@+id/saranButton" />
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/buttonGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:constraint_referenced_ids="saranButton,shareButton"
+            tools:visibility="visible" />
+        <Button
+            android:fontFamily="@font/alfa_slab_one"
             android:id="@+id/RESET"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
