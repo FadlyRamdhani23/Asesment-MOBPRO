@@ -3,12 +3,12 @@ package org.d3if3127.assesement02.ui
 
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import org.d3if3127.assesement02.db.DataDb
+import org.d3if3127.assesement02.ui.hitung.HitungViewModel
 import org.d3if3127.assesement02.ui.hitung.HitungViewModelFactory
 import org.d3if3127.assesment02.R
 import org.d3if3127.assesment02.databinding.FragmentHomepageBinding

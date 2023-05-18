@@ -1,4 +1,4 @@
-package org.d3if3127.assesement02.ui
+package org.d3if3127.assesement02.ui.hitung
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,6 +12,7 @@ import org.d3if3127.assesement02.db.DataEntity
 import org.d3if3127.assesement02.model.HasilBmi
 import org.d3if3127.assesement02.model.HasilBmr
 import org.d3if3127.assesement02.model.KategoriBmi
+import org.d3if3127.assesement02.model.hitungData
 
 class HitungViewModel(private val db: DataDao) : ViewModel() {
     private val hasilBmi = MutableLiveData<HasilBmi?>()
@@ -19,18 +20,15 @@ class HitungViewModel(private val db: DataDao) : ViewModel() {
     private val navigasi = MutableLiveData<KategoriBmi?>()
     val data = db.getLastData()
     fun hitungBmi(berat: Float, tinggi: Float, isMale: Boolean) {
-        val tinggiCm = tinggi / 100
-        val bmi = berat / (tinggiCm * tinggiCm)
-        val kategori = getKategori(bmi, isMale)
-        hasilBmi.value = HasilBmi(bmi, kategori)
+        val dataBmi = DataEntity(
+            berat = berat,
+            tinggi = tinggi,
+            isMale = isMale,
+            umur = 0f,
+        )
+        hasilBmi.value = dataBmi.hitungData()
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                val dataBmi = DataEntity(
-                    berat = berat,
-                    tinggi = tinggi,
-                    isMale = isMale,
-                    umur = 0f
-                )
                 db.insert(dataBmi)
             }
         }
