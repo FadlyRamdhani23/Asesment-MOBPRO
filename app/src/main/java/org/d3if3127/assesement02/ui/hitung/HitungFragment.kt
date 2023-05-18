@@ -1,17 +1,18 @@
-package org.d3if3127.assesement02.ui
+package org.d3if3127.assesement02.ui.hitung
 
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import org.d3if3127.assesement02.db.DataDb
 import org.d3if3127.assesement02.model.HasilBmi
 import org.d3if3127.assesement02.model.KategoriBmi
+import org.d3if3127.assesement02.ui.HitungViewModel
 import org.d3if3127.assesment02.R
 import org.d3if3127.assesment02.databinding.FragmentHitungBinding
 
@@ -20,8 +21,10 @@ class HitungFragment : Fragment() {
 
     private lateinit var binding: FragmentHitungBinding
 
-    private val viewModel: MainViewModel by lazy {
-        ViewModelProvider(requireActivity())[MainViewModel::class.java]
+    private val viewModel: HitungViewModel by lazy {
+        val db = DataDb.getInstance(requireContext())
+        val factory = HitungViewModelFactory(db.dao)
+        ViewModelProvider(this, factory)[HitungViewModel::class.java]
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -36,10 +39,15 @@ class HitungFragment : Fragment() {
         binding.shareButton.setOnClickListener { shareData() }
         viewModel.getNavigasi().observe(viewLifecycleOwner, {
             if (it == null) return@observe
-            findNavController().navigate(HitungFragmentDirections
-                .actionHitungFragmentToSaranFragment(it))
+            findNavController().navigate(
+                HitungFragmentDirections.actionHitungFragmentToSaranFragment(
+                    it
+                )
+            )
             viewModel.selesaiNavigasi()
         })
+
+        setHasOptionsMenu(true)
     }
 
     private fun shareData() {
@@ -128,6 +136,7 @@ class HitungFragment : Fragment() {
         }
         return getString(stringRes)
     }
+
     private fun showResult(result: HasilBmi?) {
         if (result == null) return
         binding.bmiTextView.text = getString(R.string.bmi_x, result.bmi)
@@ -136,5 +145,22 @@ class HitungFragment : Fragment() {
         binding.bmiTextView.visibility = View.VISIBLE
         binding.kategoriTextView.visibility = View.VISIBLE
         binding.buttonGroup.visibility = View.VISIBLE
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.options_menu, menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.menu_histori -> {
+                findNavController().navigate(R.id.action_hitungFragment_to_historiFragment)
+                return true
+            }
+            R.id.menu_about -> {
+                findNavController().navigate(R.id.action_hitungFragment_to_aboutFragment)
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

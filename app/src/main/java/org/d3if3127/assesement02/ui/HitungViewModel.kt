@@ -3,19 +3,37 @@ package org.d3if3127.assesement02.ui
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.d3if3127.assesement02.db.DataDao
+import org.d3if3127.assesement02.db.DataEntity
 import org.d3if3127.assesement02.model.HasilBmi
 import org.d3if3127.assesement02.model.HasilBmr
 import org.d3if3127.assesement02.model.KategoriBmi
 
-class MainViewModel : ViewModel() {
+class HitungViewModel(private val db: DataDao) : ViewModel() {
     private val hasilBmi = MutableLiveData<HasilBmi?>()
     private val hasilBmr = MutableLiveData<HasilBmr?>()
     private val navigasi = MutableLiveData<KategoriBmi?>()
+    val data = db.getLastData()
     fun hitungBmi(berat: Float, tinggi: Float, isMale: Boolean) {
         val tinggiCm = tinggi / 100
         val bmi = berat / (tinggiCm * tinggiCm)
         val kategori = getKategori(bmi, isMale)
         hasilBmi.value = HasilBmi(bmi, kategori)
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                val dataBmi = DataEntity(
+                    berat = berat,
+                    tinggi = tinggi,
+                    isMale = isMale,
+                    umur = 0f
+                )
+                db.insert(dataBmi)
+            }
+        }
     }
      fun hitungKaloriProtein(berat: Float, tinggi: Float, umur: Float, isMale: Boolean){
         val bmr = (10 * berat) + (6.25 * tinggi) - (5 * umur)
@@ -32,6 +50,17 @@ class MainViewModel : ViewModel() {
             bmr -161
         }
         hasilBmr.value = HasilBmr(bmr, perbedaan, hasilProtein)
+         viewModelScope.launch {
+             withContext(Dispatchers.IO) {
+                 val dataBmi = DataEntity(
+                     berat = berat,
+                     tinggi = tinggi,
+                     isMale = isMale,
+                     umur = umur,
+                 )
+                 db.insert(dataBmi)
+             }
+         }
     }
     fun mulaiNavigasi() {
         navigasi.value = hasilBmi.value?.kategori

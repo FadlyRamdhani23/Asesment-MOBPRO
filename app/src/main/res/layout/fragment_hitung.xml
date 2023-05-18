@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#617A55"
-    tools:context="org.d3if3127.assesement02.ui.HitungFragment">
+    tools:context="org.d3if3127.assesement02.ui.hitung.HitungFragment">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

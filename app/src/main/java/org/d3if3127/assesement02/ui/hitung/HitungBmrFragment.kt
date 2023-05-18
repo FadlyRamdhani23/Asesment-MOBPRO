@@ -1,26 +1,29 @@
-package org.d3if3127.assesement02.ui
+package org.d3if3127.assesement02.ui.hitung
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import org.d3if3127.assesement02.db.DataDb
 import org.d3if3127.assesement02.model.HasilBmr
+import org.d3if3127.assesement02.ui.HitungViewModel
 import org.d3if3127.assesment02.R
 import org.d3if3127.assesment02.databinding.FragmentHitungbmrBinding
 
 
 class HitungBmrFragment : Fragment() {
     private lateinit var binding: FragmentHitungbmrBinding
-    private val viewModel: MainViewModel by lazy {
-        ViewModelProvider(requireActivity())[MainViewModel::class.java]
+    private val viewModel: HitungViewModel by lazy {
+        val db = DataDb.getInstance(requireContext())
+        val factory = HitungViewModelFactory(db.dao)
+        ViewModelProvider(this, factory)[HitungViewModel::class.java]
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -37,6 +40,8 @@ class HitungBmrFragment : Fragment() {
             )
         }
         binding.sharebmrButton.setOnClickListener { shareData() }
+
+        setHasOptionsMenu(true)
     }
 
     private fun shareData() {
@@ -118,6 +123,23 @@ class HitungBmrFragment : Fragment() {
         binding.saranbmrButton.visibility = View.VISIBLE
         binding.sharebmrButton.visibility = View.VISIBLE
     //        binding.buttonGroup.visibility = View.VISIBLE
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.options_menu, menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.menu_histori -> {
+                findNavController().navigate(R.id.action_hitungBmrFragment_to_historiFragment)
+                return true
+            }
+            R.id.menu_about -> {
+                findNavController().navigate(R.id.action_hitungBmrFragment_to_aboutFragment)
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }

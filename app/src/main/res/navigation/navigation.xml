@@ -18,15 +18,27 @@
         <action
             android:id="@+id/action_homePageFragment2_to_aboutFragment"
             app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_homePageFragment2_to_historiFragment"
+            app:destination="@id/historiFragment" />
     </fragment>
     <fragment
         android:id="@+id/hitungFragment"
-        android:name="org.d3if3127.assesement02.ui.HitungFragment"
+        android:name="org.d3if3127.assesement02.ui.hitung.HitungFragment"
         android:label="fragment_hitung"
         tools:layout="@layout/fragment_hitung" >
         <action
             android:id="@+id/action_hitungFragment_to_saranFragment"
             app:destination="@id/saranFragment" />
+        <action
+            android:id="@+id/action_hitungFragment_to_historiFragment"
+            app:destination="@id/historiFragment" />
+        <action
+            android:id="@+id/action_hitungFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_hitungFragment_to_aboutFragment2"
+            app:destination="@id/aboutFragment" />
     </fragment>
     <fragment
         android:id="@+id/saranFragment"
@@ -38,11 +50,17 @@
     </fragment>
     <fragment
         android:id="@+id/hitungBmrFragment"
-        android:name="org.d3if3127.assesement02.ui.HitungBmrFragment"
+        android:name="org.d3if3127.assesement02.ui.hitung.HitungBmrFragment"
         android:label="HitungBmrFragment" >
         <action
             android:id="@+id/action_hitungBmrFragment_to_saranBmrFragment"
             app:destination="@id/saranBmrFragment" />
+        <action
+            android:id="@+id/action_hitungBmrFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_hitungBmrFragment_to_historiFragment"
+            app:destination="@id/historiFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -52,4 +70,8 @@
         android:id="@+id/saranBmrFragment"
         android:name="org.d3if3127.assesement02.ui.SaranBmrFragment"
         android:label="SaranBmrFragment" />
+    <fragment
+        android:id="@+id/historiFragment"
+        android:name="org.d3if3127.assesement02.ui.histori.HistoriFragment"
+        android:label="HistoriFragment" />
 </navigation>

@@ -6,9 +6,9 @@ import androidx.room.Insert
 import androidx.room.Query
 
 @Dao
-interface BmiDao {
+interface DataDao {
     @Insert
-    fun insert(bmi: BmiEntity)
-    @Query("SELECT * FROM bmi ORDER BY id DESC LIMIT 1")
-    fun getLastBmi(): LiveData<BmiEntity?>
+    fun insert(data: DataEntity)
+    @Query("SELECT * FROM data ORDER BY id DESC")
+    fun getLastData(): LiveData<List<DataEntity>>
 }
