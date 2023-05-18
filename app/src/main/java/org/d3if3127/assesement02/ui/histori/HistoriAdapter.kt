@@ -1,5 +1,6 @@
 package org.d3if3127.assesement02.ui.histori
 
+import android.annotation.SuppressLint
 import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.d3if3127.assesement02.db.DataEntity
 import org.d3if3127.assesement02.model.KategoriBmi
+import org.d3if3127.assesement02.model.hitungBmr
 import org.d3if3127.assesement02.model.hitungData
 import org.d3if3127.assesment02.R
 import org.d3if3127.assesment02.databinding.ItemHistoriBinding
@@ -49,8 +51,10 @@ class HistoriAdapter :
         private val dateFormatter = SimpleDateFormat("dd MMMM yyyy",
             Locale("id", "ID")
         )
+        @SuppressLint("StringFormatMatches")
         fun bind(item: DataEntity) = with(binding) {
             val hasilBmi = item.hitungData()
+            val hasilBmr = item.hitungBmr()
             kategoriTextView.text = hasilBmi.kategori.toString().substring(0, 1)
             val colorRes = when(hasilBmi.kategori) {
                 KategoriBmi.KURUS -> R.color.kurus
@@ -60,6 +64,8 @@ class HistoriAdapter :
             val circleBg = kategoriTextView.background as GradientDrawable
             circleBg.setColor(ContextCompat.getColor(root.context, colorRes))
             tanggalTextView.text = dateFormatter.format(Date(item.tanggal))
+            bmiTextView.text = root.context.getString(R.string.hasil_x1,
+            hasilBmr.perbedaan, hasilBmr.hasilProtein)
             bmiTextView.text = root.context.getString(R.string.hasil_x,
                 hasilBmi.bmi, hasilBmi.kategori.toString())
             val gender = root.context.getString(

@@ -19,4 +19,5 @@ fun DataEntity.hitungData(): HasilBmi {
         }
     }
     return HasilBmi(bmi, kategori)
+
 }
