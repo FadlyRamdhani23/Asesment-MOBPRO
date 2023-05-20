@@ -64,10 +64,17 @@ class HistoriAdapter :
             val circleBg = kategoriTextView.background as GradientDrawable
             circleBg.setColor(ContextCompat.getColor(root.context, colorRes))
             tanggalTextView.text = dateFormatter.format(Date(item.tanggal))
-            bmiTextView.text = root.context.getString(R.string.hasil_x1,
-            hasilBmr.perbedaan, hasilBmr.hasilProtein)
-            bmiTextView.text = root.context.getString(R.string.hasil_x,
-                hasilBmi.bmi, hasilBmi.kategori.toString())
+
+            if(item.pilihan.equals("BMR")){
+                bmiTextView.text = root.context.getString(R.string.hasil_x1,
+                    hasilBmr.perbedaan, hasilBmr.hasilProtein)
+            }else{
+                bmiTextView.text = root.context.getString(R.string.hasil_x,
+                    hasilBmi.bmi, hasilBmi.kategori.toString())
+            }
+
+
+
             val gender = root.context.getString(
                 if (item.isMale) R.string.pria else R.string.wanita)
             dataTextView.text = root.context.getString(R.string.data_x,

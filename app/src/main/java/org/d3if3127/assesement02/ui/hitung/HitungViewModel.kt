@@ -22,6 +22,7 @@ class HitungViewModel(private val db: DataDao) : ViewModel() {
             tinggi = tinggi,
             isMale = isMale,
             umur = 0f,
+            pilihan = "BMI"
         )
         hasilBmi.value = dataBmi.hitungData()
         viewModelScope.launch {
@@ -36,6 +37,7 @@ class HitungViewModel(private val db: DataDao) : ViewModel() {
                 tinggi = tinggi,
                 isMale = isMale,
                 umur = umur,
+                pilihan = "BMR"
             )
          hasilBmr.value = dataBmr.hitungBmr()
          viewModelScope.launch {

@@ -9,6 +9,9 @@ import androidx.room.Query
 interface DataDao {
     @Insert
     fun insert(data: DataEntity)
+
+    @Query("DELETE FROM data")
+    fun clearData()
     @Query("SELECT * FROM data ORDER BY id DESC")
     fun getLastData(): LiveData<List<DataEntity>>
 }

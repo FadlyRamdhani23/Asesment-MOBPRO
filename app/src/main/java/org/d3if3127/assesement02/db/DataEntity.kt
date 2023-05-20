@@ -11,5 +11,6 @@ data class DataEntity(
     var umur: Float,
     var berat: Float,
     var tinggi: Float,
-    var isMale: Boolean
+    var isMale: Boolean,
+      var pilihan: String,
 )

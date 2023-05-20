@@ -18,7 +18,7 @@ abstract class DataDb : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         DataDb::class.java,
-                        "bmi.db"
+                        "data.db"
                     )
                         .fallbackToDestructiveMigration()
                         .build()

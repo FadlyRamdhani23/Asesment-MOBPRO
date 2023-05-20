@@ -2,16 +2,16 @@
     <!-- Base application theme. -->
     <style name="Theme.MyApplication" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/pink_500</item>
-        <item name="colorPrimaryVariant">@color/pink_700</item>
+        <item name="colorPrimary">#025464</item>
+        <item name="colorPrimaryVariant">#E57C23</item>
         <item name="colorOnPrimary">@color/white</item>
 
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondaryVariant">#E8AA42</item>
+        <item name="colorOnSecondary">#E57C23</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">#025464</item>
         <!-- Customize your theme here. -->
         <item
             name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
