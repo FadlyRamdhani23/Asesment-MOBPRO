@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import org.d3if3127.assesement02.db.DataDb
 import org.d3if3127.assesement02.model.HasilBmi
 import org.d3if3127.assesement02.model.KategoriBmi
+import org.d3if3127.assesement02.ui.viewmodel.HitungViewModel
+import org.d3if3127.assesement02.ui.viewmodel.HitungViewModelFactory
 import org.d3if3127.assesment02.R
 import org.d3if3127.assesment02.databinding.FragmentHitungBinding
 

@@ -1,7 +1,5 @@
 package org.d3if3127.assesement02
 
-
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController

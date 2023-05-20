@@ -4,12 +4,8 @@ package org.d3if3127.assesement02.ui
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import org.d3if3127.assesement02.db.DataDb
-import org.d3if3127.assesement02.ui.hitung.HitungViewModel
-import org.d3if3127.assesement02.ui.hitung.HitungViewModelFactory
 import org.d3if3127.assesment02.R
 import org.d3if3127.assesment02.databinding.FragmentHomepageBinding
 
@@ -17,12 +13,6 @@ import org.d3if3127.assesment02.databinding.FragmentHomepageBinding
 class HomePageFragment : Fragment() {
     private lateinit var binding: FragmentHomepageBinding
 
-    private val viewModel: HitungViewModel by lazy {
-        val db = DataDb.getInstance(requireContext())
-        val factory = HitungViewModelFactory(db.dao)
-        ViewModelProvider(requireActivity())[HitungViewModel::class.java]
-        ViewModelProvider(this, factory)[HitungViewModel::class.java]
-    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         binding = FragmentHomepageBinding.inflate(layoutInflater, container, false)

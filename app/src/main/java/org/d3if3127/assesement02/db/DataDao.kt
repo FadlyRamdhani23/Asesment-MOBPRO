@@ -10,6 +10,9 @@ interface DataDao {
     @Insert
     fun insert(data: DataEntity)
 
+    //masih perlu di pelajari
+//    @Query("DELETE FROM data WHERE id= :id")
+//    fun deleteSingleData(id: Int)
     @Query("DELETE FROM data")
     fun clearData()
     @Query("SELECT * FROM data ORDER BY id DESC")

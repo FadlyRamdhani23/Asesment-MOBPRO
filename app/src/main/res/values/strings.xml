@@ -30,9 +30,9 @@ gaya karena itu berbahaya.</string>
 asal tidak lari dari kehidupan.</string>
     <string name="lihat_saran">Lihat Saran</string>
     <string name="tentang_aplikasi">Tentang Aplikasi</string>
-    <string name="copyright">Hitung BMI merupakan sebuah aplikasi Android untuk
-menghitung body mass index (BMI) sehingga seseorang dapat mengetahui apakah
-berat badannya ideal, gemuk atau kurus.</string>
+    <string name="copyright">Hitung BMI BMR merupakan sebuah aplikasi Android untuk
+menghitung body mass index (BMI) dan juga Basal Metabolic Rate (BMR) sehingga seseorang dapat mengetahui apakah
+berat badannya ideal, gemuk atau kurus. dan bisa mengetahui berapa sih kalori yang di butuhkan dia dalam sehari </string>
     ...
     <string name="bagikan">Bagikan</string>
     <string name="bagikan_template">Berat badan: %1$s kg\nTinggi badan: %2$s
@@ -48,7 +48,7 @@ cm\n Umur : %2$s\nJenis kelamin: %3$s\n\n%4$s\n%5$s</string>
     <string name="belum_ada_data">Belum ada data</string>
     <string name="histori">Histori</string>
     <string name="hasil_x">BMI: %1$.2f - %2$s</string>
-    <string name="hasil_x1">BMR: %1$.2f - PROTEIN:  %1$.2f</string>
+    <string name="hasil_x1">BMR: %1$.2f KALORI</string>
     <string name="data_x">BB: %1$.1f - TB: %2$.1f - %3$s</string>
     <string name="data_x1">BB: %1$.1f - TB: %2$.1f \n Umur: %2$.1f </string>
     <string name="hapus_histori">Hapus Histori</string>

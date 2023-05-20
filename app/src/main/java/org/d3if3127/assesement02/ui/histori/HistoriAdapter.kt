@@ -65,9 +65,11 @@ class HistoriAdapter :
             circleBg.setColor(ContextCompat.getColor(root.context, colorRes))
             tanggalTextView.text = dateFormatter.format(Date(item.tanggal))
 
+
             if(item.pilihan.equals("BMR")){
                 bmiTextView.text = root.context.getString(R.string.hasil_x1,
-                    hasilBmr.perbedaan, hasilBmr.hasilProtein)
+                    hasilBmr.perbedaan)
+
             }else{
                 bmiTextView.text = root.context.getString(R.string.hasil_x,
                     hasilBmi.bmi, hasilBmi.kategori.toString())

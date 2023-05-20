@@ -5,14 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
 import org.d3if3127.assesment02.R
-import org.d3if3127.assesment02.databinding.FragmentSaranBinding
 import org.d3if3127.assesment02.databinding.FragmentSaranbmrBinding
 
 class SaranBmrFragment : Fragment() {
 
-    private val args: SaranFragmentArgs by navArgs()
     private lateinit var binding: FragmentSaranbmrBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {

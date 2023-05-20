@@ -1,4 +1,4 @@
-package org.d3if3127.assesement02.ui.histori
+package org.d3if3127.assesement02.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,4 +14,13 @@ class HistoriViewModel(private val db: DataDao) : ViewModel() {
             db.clearData()
         }
     }
+    // masih perlu di pelajari
+//    fun deleteDataById(id: Long) {
+//        viewModelScope.launch {
+//            withContext(Dispatchers.IO) {
+//                db.deleteSingleData(id.toInt())
+//            }
+//        }
+//    }
+
 }

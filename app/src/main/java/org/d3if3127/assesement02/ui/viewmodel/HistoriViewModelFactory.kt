@@ -1,4 +1,4 @@
-package org.d3if3127.assesement02.ui.histori
+package org.d3if3127.assesement02.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
