@@ -49,14 +49,12 @@ class MainActivity2 : AppCompatActivity() {
         }
 
 
-//        val tinggiCm = tinggi.toFloat() / 100
         val selectedId = binding.radioGroup.checkedRadioButtonId
         if (selectedId == -1) {
             Toast.makeText(this, R.string.gender_invalid, Toast.LENGTH_LONG).show()
             return
         }
         val isMale = selectedId == R.id.priaRadioButton
-//        val bmi = berat.toFloat() / (tinggiCm * tinggiCm)
         val bmr = (10 * berat.toFloat()) + (6.25 * tinggi.toFloat()) - (5 * umur.toFloat())
         val protein = if(isMale){
             (berat.toFloat() * 2)
@@ -70,32 +68,10 @@ class MainActivity2 : AppCompatActivity() {
         }else{
             bmr -161
         }
-//        val kategori = getKategori(bmi, isMale)
-//        binding.bmiTextView.text = getString(R.string.bmi_x, bmi)
-        binding.bmrTextView.text = getString(R.string.bmr_x, perbedaan)
-        binding.proteinTextView.text = getString(R.string.protein_x, protein)
-//        binding.kategoriTextView.text = getString(R.string.kategori_x, kategori)
+
+        binding.bmrTextView.text = "Kebutuhan kalori anda dalam sehari adalah "+ getString(R.string.bmr_x, perbedaan) + " kalori"
+        binding.proteinTextView.text = "Dan Kebutuhan Protein anda dalam sehari adalah " + getString(R.string.protein_x, protein) + " gram"
+
     }
 
-
-
-    //    fun calculateProtein(weight: Int): Int {
-//        return (weight * 1.5).toInt()
-//    }
-//    private fun getKategori(bmi: Float, isMale: Boolean): String {
-//        val stringRes = if (isMale) {
-//            when {
-//                bmi < 20.5 -> R.string.kurus
-//                bmi >= 27.0 -> R.string.gemuk
-//                else -> R.string.ideal
-//            }
-//        } else {
-//            when {
-//                bmi < 18.5 -> R.string.kurus
-//                bmi >= 25.0 -> R.string.gemuk
-//                else -> R.string.ideal
-//            }
-//        }
-//        return getString(stringRes)
-//    }
 }

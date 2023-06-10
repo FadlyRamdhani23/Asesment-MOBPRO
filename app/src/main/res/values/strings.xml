@@ -6,8 +6,8 @@
     <string name="wanita">Wanita</string>
     <string name="hitung">Hitung</string>
     <string name="bmi_x">BMI: %1$.2f</string>
-    <string name="bmr_x">BMR: %1$.2f kalori</string>
-    <string name="protein_x">PROTEIN: %1$.0f </string>
+    <string name="bmr_x"> %1$.2f  </string>
+    <string name="protein_x"> %1$.0f </string>
     <string name="kurus">Kurus</string>
     <string name="ideal">Ideal</string>
     <string name="gemuk">Gemuk</string>
