@@ -19,4 +19,5 @@ class SaranBmrFragment : Fragment() {
 
         return binding.root
     }
+
 }
