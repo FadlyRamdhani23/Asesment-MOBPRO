@@ -1,3 +1,4 @@
 [
-  {"nama" : "Apel","kalori" : "52","Protein" : "70","imageResId" : "apel"}
+  {"nama" : "Apel","kalori" : "52","Protein" : "70","imageResId" : "apel"},
+  {"nama" : "Ayam","kalori" : "100","Protein" : "20","imageResId" : "ayam"}
   ]
