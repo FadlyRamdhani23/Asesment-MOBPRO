@@ -1,9 +1,0 @@
-[
-  {"nama" : "Nasi","kalori" : "130","Protein" : "2","imageResId" : "nasi"},
-  {"nama" : "Ikan Salmon","kalori" : "206","Protein" : "22","imageResId" : "salmon"}
-  {"nama" : "Sayur Hijau","kalori" : "30","Protein" : "2","imageResId" : "sayur hijau"},
-  {"nama" : "Apel","kalori" : "52","Protein" : "0.4","imageResId" : "apel"},
-  {"nama" : "Telur","kalori" : "155","Protein" : "12.6","imageResId" : "telor"},
-  {"nama" : "Ayam","kalori" : "190","Protein" : "25","imageResId" : "ayam"},
-  {"nama" : "Tahu","kalori" : "120","Protein" : "15","imageResId" : "tahu"}
-  ]
