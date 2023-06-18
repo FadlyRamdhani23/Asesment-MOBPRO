@@ -18,7 +18,7 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 interface MakananApiService {
-    @GET("food.json")
+    @GET("wow.json")
     suspend fun getMakanan(): List<Food>
 }
 object MakananApi {

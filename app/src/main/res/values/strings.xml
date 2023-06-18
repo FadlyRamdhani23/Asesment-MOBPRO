@@ -6,8 +6,8 @@
     <string name="wanita">Wanita</string>
     <string name="hitung">Hitung</string>
     <string name="bmi_x">BMI: %1$.2f</string>
-    <string name="bmr_x">Kalori yang Anda Butuhkan dalam sehari \n: %1$.2f kalori</string>
-    <string name="protein_x">Dan Protein yang dibutuhkan\n: %1$.0f </string>
+    <string name="bmr_x">Kalori yang Anda Butuhkan dalam sehari \n: %1$.2f Kkal</string>
+    <string name="protein_x">Dan Protein yang dibutuhkan\n: %1$.0f Gram </string>
     <string name="kurus">Kurus</string>
     <string name="ideal">Ideal</string>
     <string name="gemuk">Gemuk</string>
@@ -48,7 +48,8 @@ cm\n Umur : %2$s\nJenis kelamin: %3$s\n\n%4$s\n%5$s</string>
     <string name="belum_ada_data">Belum ada data</string>
     <string name="histori">Histori</string>
     <string name="hasil_x">BMI: %1$.2f - %2$s</string>
-    <string name="hasil_x1">BMR: %1$.2f KALORI</string>
+    <string name="hasil_x1">BMR: %1$.2f Kkal</string>
+    <string name="hasil_xz">Protein: %1$.2f gram</string>
     <string name="data_x">BB: %1$.1f - TB: %2$.1f - %3$s</string>
     <string name="data_x1">BB: %1$.1f - TB: %2$.1f \n Umur: %2$.1f </string>
     <string name="hapus_histori">Hapus Histori</string>
@@ -58,6 +59,10 @@ cm\n Umur : %2$s\nJenis kelamin: %3$s\n\n%4$s\n%5$s</string>
     <string name="switch_layout">Ubah tampilan</string>
     <string name="message">%1$s diklik!</string>
     <string name="koneksi_error">Koneksi error</string>
+    <string name="channel_name">Updater</string>
+    <string name="channel_desc">Update data hewan otomatis</string>
+    <string name="notif_title">Ada Buah baru!</string>
+    <string name="notif_text">Cek sekarang biar nggak penasaran..</string>
 
 
 </resources>

@@ -55,27 +55,29 @@ class HistoriAdapter :
         fun bind(item: DataEntity) = with(binding) {
             val hasilBmi = item.hitungData()
             val hasilBmr = item.hitungBmr()
-            kategoriTextView.text = hasilBmi.kategori.toString().substring(0, 1)
-            val colorRes = when(hasilBmi.kategori) {
-                KategoriBmi.KURUS -> R.color.kurus
-                KategoriBmi.IDEAL -> R.color.ideal
-                else -> R.color.gemuk
-            }
-            val circleBg = kategoriTextView.background as GradientDrawable
-            circleBg.setColor(ContextCompat.getColor(root.context, colorRes))
             tanggalTextView.text = dateFormatter.format(Date(item.tanggal))
 
 
             if(item.pilihan.equals("BMR")){
                 bmiTextView.text = root.context.getString(R.string.hasil_x1,
                     hasilBmr.perbedaan)
+                niceTextView.text = root.context.getString(R.string.hasil_xz,
+                    hasilBmr.hasilProtein)
+                kategoriTextView.text = "B"
+                kategoriTextView.setBackgroundResource(R.drawable.bmr)
 
             }else{
                 bmiTextView.text = root.context.getString(R.string.hasil_x,
                     hasilBmi.bmi, hasilBmi.kategori.toString())
+                kategoriTextView.text = hasilBmi.kategori.toString().substring(0, 1)
+                val colorRes = when(hasilBmi.kategori) {
+                    KategoriBmi.KURUS -> R.color.kurus
+                    KategoriBmi.IDEAL -> R.color.ideal
+                    else -> R.color.gemuk
+                }
+                val circleBg = kategoriTextView.background as GradientDrawable
+                circleBg.setColor(ContextCompat.getColor(root.context, colorRes))
             }
-
-
 
             val gender = root.context.getString(
                 if (item.isMale) R.string.pria else R.string.wanita)
