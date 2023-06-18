@@ -29,6 +29,11 @@ class HomePageFragment : Fragment() {
                 R.id.action_homePageFragment2_to_hitungBmrFragment
             )
         }
+        binding.button3.setOnClickListener {
+            it.findNavController().navigate(
+                R.id.action_homePageFragment2_to_foodActivity
+            )
+        }
         setHasOptionsMenu(true)
         binding.imageView.setImageResource(R.drawable.image_homepage)
     }
@@ -46,6 +51,7 @@ class HomePageFragment : Fragment() {
             findNavController().navigate(R.id.action_homePageFragment2_to_aboutFragment)
             return true
         }
+
         }
         return super.onOptionsItemSelected(item)
     }

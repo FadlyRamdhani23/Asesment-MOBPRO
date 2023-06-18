@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_homePageFragment2_to_historiFragment"
             app:destination="@id/historiFragment" />
+        <action
+            android:id="@+id/action_homePageFragment2_to_foodActivity"
+            app:destination="@id/foodActivity" />
     </fragment>
     <fragment
         android:id="@+id/hitungFragment"
@@ -74,4 +77,9 @@
         android:id="@+id/historiFragment"
         android:name="org.d3if3127.assesement02.ui.histori.HistoriFragment"
         android:label="HistoriFragment" />
+    <fragment
+        android:id="@+id/foodActivity"
+        android:name="org.d3if3127.assesement02.ui.food.FoodActivity"
+        android:label="food_activiy"
+        tools:layout="@layout/food_activiy" />
 </navigation>

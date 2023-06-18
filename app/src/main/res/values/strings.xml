@@ -56,6 +56,8 @@ cm\n Umur : %2$s\nJenis kelamin: %3$s\n\n%4$s\n%5$s</string>
     <string name="hapus">Hapus</string>
     <string name="batal">Batal</string>
     <string name="switch_layout">Ubah tampilan</string>
+    <string name="message">%1$s diklik!</string>
+    <string name="koneksi_error">Koneksi error</string>
 
 
 </resources>
