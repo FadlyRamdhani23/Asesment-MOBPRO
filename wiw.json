@@ -1,9 +1,0 @@
- [
- {"nama" : "Nasi","kalori" : "130 Kkal","Protein" : "2 Gram","imageResId" : "nasi"},
-  {"nama" : "Sayur Hijau","kalori" : "30 Kkal","Protein" : "2 Gram","imageResId" : "sayur"},
-  {"nama" : "Apel","kalori" : "52 Kkal","Protein" : "0.4 Gram","imageResId" : "apel"},
-  {"nama" : "Telur","kalori" : "155 Kkal","Protein" : "12.6 Gram","imageResId" : "telor"},
-  {"nama" : "Ayam","kalori" : "190 Kkal","Protein" : "25 Gram","imageResId" : "ayam"},
-  {"nama" : "Tahu","kalori" : "120 Kkal","Protein" : "15 Gram","imageResId" : "tahu"}
-   {"nama" : "Ikan Salmon","kalori" : "206 kkal","Protein" : "22 Gram","imageResId" : "salmon"},
-]
